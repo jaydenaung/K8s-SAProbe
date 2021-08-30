@@ -11,7 +11,7 @@ Just a repo to share some useful scripts I've used in Kubernetes security labs. 
 
 Download the script here - [sa_secrets_probe.sh](scripts/sa_secrets_probe.sh). This is a script to probe Kubernetes secrets using "Service Accounts" mounted on each pod in a namespace. This will allow you to know whether any excessive role that can have access to secrets is being bound to service account that is used by the pods in a namespace. 
 
-> This will only work if the linux Pod are have `curl` installed.
+> Note: This will only work on the linux Pods which have `curl` installed.
 
 ### How to 
 
@@ -71,5 +71,6 @@ echo UEBzc3cwcmQ= | base64 -d
 P@ssw0rd
 ```
 
+> Note: ALWAYS encrypt your etcd to avoid exposure like this!
 
 

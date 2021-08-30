@@ -31,5 +31,4 @@ sleep 1
 done
 echo "You have $PODWITHTOKEN Pods that have Service Account mounted."
 
-# -H 'Accept: application/json'
 

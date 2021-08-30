@@ -1,7 +1,11 @@
 #!/bin/bash
 # Author: Jayden Kyaw Htet Aung | Cloud Security Lead Architect 
 # This is a script to discover Kubernetes Secrets and ConfigMaps that are exposed via powerful Service Accounts.
+
+# Update the NAMESPACE accordingly
 NAMESPACE=default
+
+# Get the Pod list
 pos=$(kubectl get pods | awk ' NR = 3 {print $1}' | sed 1d)
 PODWITHTOKEN=0
 echo "This script will scan if any service account mounted on any of the pods has access to any Kubernetes secrets..."

@@ -9,7 +9,7 @@ Just a repo to share some useful scripts I've used in Kubernetes security labs. 
 
 # Scripts 
 
-## Secrets Probe (Using Service Accounts in Pods) 
+## 1. Secrets Probe (Using Service Accounts in Pods) 
 
 Have you ever wondered, in a Kubernetes cluster, if the "service accounts" that are being mounted on the pods have access to "Secrets" stored in un-encrypted etcd database, and ConfigMaps (and they shouldn't)? Sometimes your Kubernetes user's permission may be configured according to least-privilege principle, but that might not be the case for some service accounts. Sometimes such service accounts were created "Not Accidentally".
 

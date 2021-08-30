@@ -31,7 +31,7 @@ NAMESPACE=default
 
 You will see a rather lengthy result because the probe ran against each and every pod it can find.
 
-You will probably see un-encrypted secrets like the one below:
+You might probably find secrets stored in un-encrypted `etcd` database like the one below:
 
 ```bash
 
@@ -71,6 +71,8 @@ echo UEBzc3cwcmQ= | base64 -d
 P@ssw0rd
 ```
 
-> Note: ALWAYS encrypt your etcd to avoid exposure like this!
+> Note: ALWAYS encrypt your `etcd` to avoid exposure like this!
+
+And if you see the probe script discover and expose secrets when it shouldn't, that means you have excessive permission issues with the roles that are attached to service accounts! Time to tighten RBAC and encrypt `etcd`!
 
 

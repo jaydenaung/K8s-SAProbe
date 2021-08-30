@@ -1,21 +1,23 @@
-# Kubernetes Probes
+# Kubernetes Security Scripts
 
 Just a repo to share some useful scripts I've used in Kubernetes security labs. You can use Kubernetes CLI to achieve the same result manually and repeatedly for each and every pods but why not automate it, right? I'll keep adding new scripts to this repo whenever I come across new use cases.
 
 ## Pre-requisites
-- The bash scripts will use Kubernetes CLI such as "kubectl". ( Download `kubectl` [here](https://kubernetes.io/docs/tasks/tools/))
+- The bash scripts will use Kubernetes CLI such as **kubectl**. ( Download `kubectl` [here](https://kubernetes.io/docs/tasks/tools/))
+
+- The Kubernetes user does not need to have access to Secrets and ConfigMaps. But the user needs to be able to `exec` into pods. 
 
 # Scripts 
 
 ## Secrets Probe (Using Service Accounts in Pods) 
 
-Download the script here - [sa_secrets_probe.sh](scripts/sa_secrets_probe.sh). This is a script to probe Kubernetes secrets using "Service Accounts" mounted on each pod in a namespace. This will allow you to know whether any excessive role that can have access to secrets is being bound to service account that is used by the pods in a namespace. 
+Download the script here - [sa_probe.sh](scripts/sa_probe.sh). This is a script to probe Kubernetes Secrets and ConfigMaps using the permission of "Service Accounts" mounted on each pod in a namespace. This will allow you to know whether any excessive role that can have access to Secrets and ConfigMaps is being bound to service account that is used by the pods in a namespace. 
 
 > Note: This will only work on the linux Pods which have `curl` installed.
 
 ### How to 
 
-- In the script, update the $NAMESPACE variable according to your requirement. 
+- In the script, update the $NAMESPACE variable according to your requirement. The default is `default` namespace. 
 
 ```bash
 NAMESPACE=default
@@ -29,9 +31,9 @@ NAMESPACE=default
 
 ### Expected Result
 
-You will see a rather lengthy result because the probe ran against each and every pod it can find.
+You will probably see a rather lengthy report because the probe ran against each and every pod it can find. It will return all Secrets, ConfigMaps discovered using the permission of service accounts mounted on pods in a namespace. 
 
-You might probably find secrets stored in un-encrypted `etcd` database like the one below:
+If you scroll through it, you might probably find secrets stored in un-encrypted `etcd` database like the one below:
 
 ```bash
 
@@ -73,6 +75,6 @@ P@ssw0rd
 
 > Note: ALWAYS encrypt your `etcd` to avoid exposure like this!
 
-And if you see the probe script discover and expose secrets when it shouldn't, that means you have excessive permission issues with the roles that are attached to service accounts! Time to tighten RBAC and encrypt `etcd`!
+This probe script is designed to find both **Secrets** and **ConfigMaps**. And if you see the script discover and expose secrets when it shouldn't, that means you have excessive permission issues with the roles that are attached to service accounts! Time to tighten RBAC and encrypt `etcd`!
 
 

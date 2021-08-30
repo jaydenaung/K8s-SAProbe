@@ -68,7 +68,7 @@ If you scroll through it, you might probably find secrets stored in un-encrypted
 
 ```
 
-You can grab the secret value which is encoded. And you can do the following and get the base64 decoded value
+You can grab the secret value which is encoded. And you can do the following and get the base64 decoded value.
 
 ```bash
 echo UEBzc3cwcmQ= | base64 -d

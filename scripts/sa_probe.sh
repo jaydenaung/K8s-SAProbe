@@ -24,10 +24,13 @@ export sa=$(kubectl exec -it $po -- mount | grep serviceaccount | cut -d" " -f 3
     sleep 1
     echo "Probing to see whether this service account has access to any Kubernetes CONFIGMAPS in $NAMESPACE namespace.."
     echo "HERE YOU GO.."
-    kubectl exec -it $po -- curl -k -H "Authorization: Bearer $TOKEN"  https://kubernetes/api/v1/namespaces/$NAMESPACE/configmaps/
+    kubectl exec -it $po -- curl -k -H "Authorization: Bearer $TOKEN" \
+    -H 'Accept: application/json' \
+    https://kubernetes/api/v1/namespaces/$NAMESPACE/configmaps/
   fi
 sleep 1
 done
 echo "You have $PODWITHTOKEN Pods that have Service Account mounted."
+echo "Probe has finished scanning."
 
 

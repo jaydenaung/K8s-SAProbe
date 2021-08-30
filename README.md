@@ -11,7 +11,9 @@ Just a repo to share some useful scripts I've used in Kubernetes security labs. 
 
 ## Secrets Probe (Using Service Accounts in Pods) 
 
-Download the script here - [sa_probe.sh](scripts/sa_probe.sh). This is a script to probe Kubernetes Secrets and ConfigMaps using the permission of "Service Accounts" mounted on each pod in a namespace. This will allow you to know whether any excessive role that can have access to Secrets and ConfigMaps is being bound to service account that is used by the pods in a namespace. 
+Have you ever wondered, in a Kubernetes cluster, if the "service accounts" that are being mounted on the pods have access to "Secrets" stored in un-encrypted etcd database, and ConfigMaps (and they shouldn't)? Sometimes your Kubernetes user's permission may be configured according to least-privilege principle, but that might not be the case for some service accounts. Sometimes such service accounts were created "Not Accidentally".
+
+This is a script to probe Kubernetes Secrets and ConfigMaps using the permission of "Service Accounts" mounted on each pod in a namespace. This will allow you to know whether any excessive role that can have access to Secrets and ConfigMaps is being bound to service account that is used by the pods in a namespace. Download the script here - [sa_probe.sh](scripts/sa_probe.sh).
 
 > Note: This will only work on the linux Pods which have `curl` installed.
 

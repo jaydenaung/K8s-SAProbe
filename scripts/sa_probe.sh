@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: Jayden Kyaw Htet Aung | Cloud Security Lead Architect 
-# SAProbe is a script to discover Kubernetes Secrets and ConfigMaps that are exposed via powerful Service Accounts.
+# SAProbe is a script which discovers Kubernetes Secrets and ConfigMaps that are exposed via powerful Service Accounts.
 
 # Update the NAMESPACE accordingly
 NAMESPACE=default

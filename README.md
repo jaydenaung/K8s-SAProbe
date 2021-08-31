@@ -1,6 +1,6 @@
 # Kubernetes Security Scripts
 
-Just a repo to share some useful scripts I've used in Kubernetes security labs. You can use Kubernetes CLI to achieve the same result manually and repeatedly for each and every pods but why not automate it, right? I'll keep adding new scripts to this repo whenever I come across new use cases.
+Just a repo to share some useful scripts I've used in Kubernetes security labs. You could definitely use Kubernetes CLI to achieve the same result manually and repeatedly for each and every pods but why not automate it, right? I'll keep adding new scripts to this repo whenever I come across new use cases.
 
 ## Pre-requisites
 - The bash scripts will use Kubernetes CLI such as **kubectl**. ( Download `kubectl` [here](https://kubernetes.io/docs/tasks/tools/))
@@ -9,7 +9,7 @@ Just a repo to share some useful scripts I've used in Kubernetes security labs. 
 
 # Scripts 
 
-## 1. Secrets Probe (Using Service Accounts in Pods) 
+## 1. SAProbe -  Discovers Exposed Secrets/ConfigMaps Using Service Accounts in Pods
 
 Have you ever wondered, in a Kubernetes cluster, if the "service accounts" that are being mounted on the pods have access to "Secrets" stored in un-encrypted etcd database, and ConfigMaps (and they shouldn't)? Sometimes your Kubernetes user's permission may be configured according to least-privilege principle, but that might not be the case for some service accounts. Sometimes such service accounts were created "Not Accidentally".
 

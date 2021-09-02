@@ -37,6 +37,14 @@ export sa=$(kubectl exec -it $po -- mount | grep serviceaccount | cut -d" " -f 3
 sleep 1
 done
 echo "You have $PODWITHTOKEN Pods that have Service Account mounted."
+
+for po in $pos
+do
+svcacc=$(kubectl get po $po -oyaml | grep serviceAccountName | awk ' { print $2 } ')
+echo "The service account mounted on Pod $po is $svcacc"
+done
+
 echo "Probe has finished scanning."
+
 
 

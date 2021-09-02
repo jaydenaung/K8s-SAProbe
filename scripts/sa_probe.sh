@@ -8,7 +8,7 @@ NAMESPACE=default
 # Get the Pod list
 pos=$(kubectl get pods | awk ' NR = 3 {print $1}' | sed 1d)
 PODWITHTOKEN=0
-echo "This script will scan if any service account mounted on any of the pods has access to any Kubernetes secrets..."
+echo "This script will find out if any service account mounted on any of the pods has access to any Kubernetes secrets..."
 for po in $pos
 do
 export sa=$(kubectl exec -it $po -- mount | grep serviceaccount | cut -d" " -f 3)

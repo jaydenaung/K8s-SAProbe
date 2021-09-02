@@ -28,7 +28,7 @@ NAMESPACE=default
 - Execute the script
 
 ```bash
-./sa_secrets_probe.sh
+./sa_probe.sh.sh
 ```
 
 ### Expected Result

@@ -58,7 +58,7 @@ export sa=$(kubectl exec -it $po -- mount | grep serviceaccount | cut -d" " -f 3
   fi
 sleep 1
 done
-echo "Probe has finished scanning exposed Secrets and ConfigMaps."
+echo "Probe has finished discovering exposed Secrets and ConfigMaps."
 
 echo "You have $PODWITHTOKEN Pods that have Service Account mounted."
 for po in $pos

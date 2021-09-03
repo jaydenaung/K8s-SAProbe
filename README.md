@@ -1,10 +1,12 @@
 # SAProbe #
 
-Have you ever wondered, in a Kubernetes cluster, if the "service accounts" that are being mounted on the pods have access to "Secrets" stored in un-encrypted etcd database, and ConfigMaps (and they shouldn't)? Sometimes your Kubernetes user's permission may be configured according to least-privilege principle, but that might not be the case for some service accounts. Sometimes such service accounts were created "Not Accidentally".
+Have you ever wondered, in a Kubernetes cluster, if the "service accounts" that are being mounted on the pods have access to "Secrets" stored in un-encrypted etcd database, and ConfigMaps (and they shouldn't)? Sometimes your Kubernetes user's permission may be configured according to least-privilege principle, but that might not be the case for some "service accounts". Sometimes such service accounts were created "Not Accidentally".
 
 ## About the Tool
 
-SAProbe is a script that scans Kubernetes pods and discovers Secrets and ConfigMaps using the permission of "Service Accounts" mounted on each pod in a namespace. This will allow you to know whether any excessive role that can have access to Secrets and ConfigMaps is being bound to service account that is used by the pods in a namespace. Download the tool here - [sa_probe.sh](scripts/sa_probe.sh).
+SAProbe is a script that scans Kubernetes pods and discovers Secrets and ConfigMaps using the permission of "Service Accounts" mounted on each pod in a namespace. This tool will allow you to discover which Secrets or ConfigMaps are exposed. It'll allow you to know whether any excessive role or clusterrole are being bound to service account that is used by the pods in a namespace. 
+
+Download the tool here - [sa_probe.sh](scripts/sa_probe.sh).
 
 > Note: This will only work on linux Pods which have `curl` installed.
 

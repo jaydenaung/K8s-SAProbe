@@ -2,14 +2,14 @@
 #########################################################################################################################
 #                                                                                                                       #
 #                                                                                                                       #
-#   SAProbe - a script that discovers Kubernetes Secrets and ConfigMaps that are exposed via powerful Service Accounts. #
+#   SAProbe - a tool that discovers Kubernetes Secrets and ConfigMaps that are exposed via powerful Service Accounts.   #
 #                                                                                                                       #
 #                                                                                                                       #
 #########################################################################################################################
 #                                                                                                                       #
 #                                                                                                                       #
-#                                  Author: Jayden Kyaw Htet Aung (@JaydenAung)                                          #
-#                                  Cloud Security Lead Architect | Standard Chartered Bank                              #
+#                                  Author: Jayden Kyaw Htet Aung (Twitter: @JaydenAung)                                 #
+#                                  LinkedIn: https://www.linkedin.com/in/jaydenaung/                                    #
 #                                                                                                                       #
 #                                                                                                                       #
 #                                                                                                                       #
@@ -19,9 +19,10 @@
 # Version Notes:
 #
 # version: 1.0 - 30-08-2021 - Inital script.
-# version 1.1 - 02-09-2021 - Added printing of "Service Account" in each pod.
-# Disclaimer: This is my personal, weekend project, and all my development work in this script is not in any way related to SCB.
+# version 1.1 - 03-09-2021 - Added printing of "Service Account" in each pod.
+# Author's note: This is my personal, weeekend project. All development work in this tool is not in any way related to my employer. 
 
+# SAProbe
 # Update the NAMESPACE accordingly
 NAMESPACE=default
 
@@ -67,6 +68,7 @@ do
   echo "The service account mounted on Pod \"$po\" is \"$svcacc\""
   sleep 1
 done
+
 
 
 

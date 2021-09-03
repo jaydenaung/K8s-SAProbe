@@ -20,7 +20,7 @@
 #
 # version: 1.0 - 30-08-2021 - Inital script.
 # version 1.1 - 03-09-2021 - Added printing of "Service Account" in each pod.
-# Author's note: This is my personal, weeekend project. All development work in this tool is not in any way related to my employer. 
+# Author's note: This is my personal, weekend project. All development work in this tool is not in any way related to my employer. 
 
 # SAProbe
 # Update the NAMESPACE accordingly
